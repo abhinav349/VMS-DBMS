@@ -1,0 +1,31 @@
+{% extends 'admin_base.html' %}
+
+{% block content%}
+<div class="container-fluid" style="margin-block: 3rem;     padding-left: 3rem;
+padding-right: 3rem;">
+{% for item in vendors %}
+    <div class = "row">
+        <div class = "col-sm-8">
+          {{item.0}}<br>
+          {{item.1}}
+        </div>
+        <div class = "col-sm-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                  <a href = "/admin-login/dashboard/vendor-view-details/{{item.0}}" type="button" class="btn btn-outline-dark">Details</a>
+                </div>
+              <div class="col-sm">
+                <a href = "/admin-login/dashboard/edit-vendor/{{item.0}}" type="button" class="btn btn-outline-dark">Edit</a>
+              </div>
+              <div class="col-sm">
+                <a href = "/admin-login/dashboard/delete-vendor/{{item.0}}" type="button" class="btn btn-outline-danger">Delete</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</div><hr>
+{% endfor %}
+  </div> <hr>
+  
+{% endblock content %}

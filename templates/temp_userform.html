@@ -1,0 +1,22 @@
+{% extends 'student_base1.html' %}
+{% block content%}
+<div class="row container">
+        <form method="POST">
+            {% csrf_token %}
+            {{form}}
+            {% comment %} <div>
+                <label for="">Value1</label>
+                <input type="text" name="num1" value = "{{n1}}" class="form-control">
+            </div>
+            <div>
+                <label for="">Value2</label>
+                <input type="text" name="num2" value = "{{n2}}" class="form-control">
+            </div> {% endcomment %}
+            <div class="pt-4">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <input type="text" value = "{{output}}">
+        </form>
+</div>
+
+{% endblock content %}

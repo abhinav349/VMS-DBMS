@@ -1,0 +1,49 @@
+{% extends 'vendor_base.html' %}
+
+{% block content%}
+<div class="container-fluid" style="margin-block: 3rem;     padding-left: 3rem;
+padding-right: 3rem;">
+
+{% if open %}
+Shop is Open - 
+<a href = "/vendor-login/dashboard/shop-status/{{open}}" type="button" class="btn btn-dager">Close Shop</a>
+{% else %}
+Shop is Closed -
+<a href = "/vendor-login/dashboard/shop-status/{{open}}" type="button" class="btn btn-success">Open Shop</a>
+{% endif %}
+<hr>
+{% for key,value in item_id.items %}
+    <div class = "row">
+        <div class = "col-sm-8">
+          {{value.0}}
+        </div>
+        <div class = "col-sm-3">
+        <div class="container">
+            <div class="row">
+              {% if value.1 == 0 %}
+              <form method = "POST">
+                {% csrf_token %}
+                <div class="col-sm">
+                  <button name = "turn_on" value = "{{key}}" type="submit" class="btn btn-success">Turn On</button>
+                </div></form>
+              {% else %}
+              <form method = "POST">
+                {% csrf_token %}
+              <div class="col-sm">
+                <button value = "{{key}}" type="submit" name = "turn_off" class="btn btn-danger">Turn Off</button>
+              </div></form>
+              {% endif %}
+              <div class="col-sm">
+                <a href = "/vendor-login/dashboard/edit-item/{{key}}" type="button" class="btn btn-outline-dark">Edit</a>
+              </div>
+              <div class="col-sm">
+                <a href = "/vendor-login/dashboard/delete-item/{{key}}" type="button" class="btn btn-outline-danger">Delete</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</div><hr>
+{% endfor %}
+  </div> <hr>
+  
+{% endblock content %}

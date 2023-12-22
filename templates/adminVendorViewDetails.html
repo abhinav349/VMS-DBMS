@@ -1,0 +1,30 @@
+{% extends 'admin_base.html' %}
+
+{% block content%}
+
+    <div class="container" style="margin-top: 0.5rem;">
+        <div class="card">
+          <div class="card-header">
+            Vendor Id: {{vid}}
+          </div>
+          <div class="card-body">
+            <p class="card-text">Shop Name: {{details.0}}<br> </p>
+            <p class="card-text">Location: {{details.1}}<br> </p>
+            <p class="card-text">Email: {{details.2}}<br> </p>
+            <p class="card-text">Commission: {{details.3}}<br> </p>
+            <p class="card-text">Income: {{details.4}}<br> </p>
+            <p class="card-text">Status: {% if details.5 %}
+                Open
+            {% else %}
+                Closed
+            {% endif %}<br> </p>
+
+          </div>
+        </div>
+        <hr>
+        </div>
+
+                {% endblock content %}
+
+    
+

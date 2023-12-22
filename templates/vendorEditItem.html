@@ -1,0 +1,42 @@
+{% extends 'vendor_base.html' %}
+{% block content%}
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <h2>Edit Item</h2>
+        </div>
+
+        
+    
+        <div class="row g-5">
+          <div class="col-md-7 col-lg-8">
+            <form method = "POST" class="needs-validation" novalidate="">
+              {% csrf_token %}
+              <div class="row g-3">
+
+
+                <div class="col-sm-7">
+                  <label for="itemName" class="form-label">Item id: {{item_id}}</label>
+                </div>
+                
+                <div class="col-sm-7">
+                  <label for="itemName" class="form-label">Item name</label>
+                  <input type="text" name = "itemname" class="form-control" id="itemName" placeholder="{{item_name}}" value="{{item_name}}" required="">
+                </div>
+
+                <div class="col-7">
+                  <label for="price" class="form-label">Price</label>
+                  <input type="price" name = "price" class="form-control" id="price" placeholder="{{item_price}}" value="{{item_price}}">
+                </div>
+              </div>
+    
+              <hr class="my-4">
+    
+              <button class="w-100 btn btn-primary btn-lg" type="submit">Edit Item</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+      {% endblock content %}
+    

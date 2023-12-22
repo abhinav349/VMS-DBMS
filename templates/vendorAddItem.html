@@ -1,0 +1,48 @@
+{% extends 'vendor_base.html' %}
+{% block content%}
+    <div class="container">
+      <main>
+        <div class="py-5 text-center">
+          <h2>Add Item</h2>
+        </div>
+    
+        <div class="row g-5">
+          <div class="col-md-7 col-lg-8">
+            <form method = "POST" class="needs-validation" novalidate="">
+              {% csrf_token %}
+              <div class="row g-3">
+                <div class="col-sm-7">
+                  <label for="itemName" class="form-label">Item name</label>
+                  <input type="text" name = "itemname" class="form-control" id="itemName" placeholder="" value="" required="">
+                </div>
+    
+    
+    
+                <div class="col-7">
+                  <label for="price" class="form-label">Price</label>
+                  <input type="price" name = "price" class="form-control" id="price" placeholder="">
+                </div>
+
+                {% comment %} <div class="input-group mb-3">
+                  <label class="input-group-text" for="inputGroupFile01">Upload Image</label>
+                  <input type="file" class="form-control" id="inputGroupFile01">
+                </div> {% endcomment %}
+    
+                {% comment %} <div class="col-12">
+                  <label for="description" class="form-label">Description</label>
+                  <input type="text" name = "description" class="form-control" id="description" placeholder="" required="">
+                </div> {% endcomment %}
+    
+    
+              </div>
+    
+              <hr class="my-4">
+    
+              <button class="w-100 btn btn-primary btn-lg" type="submit">Add Item</button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+      {% endblock content %}
+    
